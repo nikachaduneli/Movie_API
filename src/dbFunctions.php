@@ -9,6 +9,9 @@ const DATABASE  = "bitoid";
 function createConnection()
 {
     try{
+        $connection = mysqli_connect(HOSTNAME, USER, PASSWORD);
+        $connection->query('CREATE DATABASE IF NOT EXISTS '.DATABASE);
+
         return mysqli_connect(HOSTNAME, USER, PASSWORD, DATABASE);
     }
     catch(Exception $e){
