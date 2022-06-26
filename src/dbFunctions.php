@@ -12,6 +12,7 @@ function createConnection()
         $connection = mysqli_connect(HOSTNAME, USER, PASSWORD);
         $connection->query('CREATE DATABASE IF NOT EXISTS '.DATABASE);
         createTable($connection);
+        mysqli_close($connection);
 
         return mysqli_connect(HOSTNAME, USER, PASSWORD, DATABASE);
     }
